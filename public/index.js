@@ -1,3 +1,21 @@
+/* generic XHR request */
+
+
+function request(url, cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener("load", function() {
+    cb(null, xhr.responseText);
+  });
+  xhr.addEventListener("error", function() {
+    cb("error" + xhr.responseType);
+  });
+  xhr.open("GET", url, true);
+  xhr.send();
+}
+
+
+
+
 var addButton = document.getElementById('add-recipe');
 addButton.addEventListener('click', function(e) {
   document.getElementById("overlay").style.display = "block";
@@ -64,20 +82,7 @@ document.getElementById('british').addEventListener("click", function() {
 })
 
 
-/* generic XHR request */
 
-
-function request(url, cb) {
-  var xhr = new XMLHttpRequest();
-  xhr.addEventListener("load", function() {
-    cb(null, xhr.responseText);
-  });
-  xhr.addEventListener("error", function() {
-    cb("error" + xhr.responseType);
-  });
-  xhr.open("GET", url, true);
-  xhr.send();
-}
 
 
 function updateDom(err, data) {
@@ -85,7 +90,7 @@ function updateDom(err, data) {
     console.log(err);
   } else {
     var recipes = JSON.parse(data);
-
+    console.log(recipes);
     var ul = document.createElement("ul");
     var goBack = document.createElement('button');
     goBack.setAttribute("class", "goback-button");

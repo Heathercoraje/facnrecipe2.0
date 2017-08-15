@@ -12,3 +12,4 @@ const getData = (country, cb) => {
 }
 
 module.exports = getData;
+//what is this res.rows on line 10?

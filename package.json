@@ -1,5 +1,5 @@
 {
-   "name": "facnrecipe 2.0",
+   "name": "facnrecipe2.0",
    "version": "1.0.0",
    "description": "Better recipe application for facn community 2.0",
    "main": "src/server.js",
