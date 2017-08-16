@@ -5,6 +5,10 @@ const getData = require('./queries/getData.js');
 const dbConnection = require('./database/db_connection');
 const addNewRecipe = require('./queries/addData.js');
 const cookie = require('cookie');
+const {
+  sign,
+  verify
+} = require('jsonwebtoken');
 
 const handleHomeRoute = (response) => {
   const filePath = path.join(__dirname, '..', 'public', 'index.html')
