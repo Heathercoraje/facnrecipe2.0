@@ -8,7 +8,8 @@ const cookie = require('cookie');
 const {
   sign,
   verify
-} = require('jsonwebtoken');
+} = require('jsonwebtoken'); +
+require('env2')('./config.env');
 
 const handleHomeRoute = (response) => {
   const filePath = path.join(__dirname, '..', 'public', 'index.html')
