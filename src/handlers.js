@@ -3,8 +3,8 @@ const path = require('path');
 const qs = require('querystring');
 const getData = require('./queries/getData.js');
 const dbConnection = require('./database/db_connection');
-const addNewRecipe = require('./queries/addData.js')
-
+const addNewRecipe = require('./queries/addData.js');
+const cookie = require('cookie');
 
 const handleHomeRoute = (response) => {
   const filePath = path.join(__dirname, '..', 'public', 'index.html')
@@ -41,7 +41,7 @@ const handleCuisine = (request, response) => {
   const endpoint = request.url.split('/')[1];
   getData(endpoint, (err, res) => {
     if (err) {
-      return console.log('error querying the db'); //I am getting this message when I implment this function, wtf?
+      return console.log('error querying the db');
     }
     const data = JSON.stringify(res);
     response.writeHead(200, {
@@ -103,7 +103,6 @@ const handleLogin = (request, response) => {
     })
   })
 }
-
 //put signupInfo into db using query
 const handleSignup = (request, response) => {
   let string = '';
